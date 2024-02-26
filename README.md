@@ -123,6 +123,7 @@ This Tool returns `data` with following format
 | file           | `object`  | Uploaded file data. Any data got from backend uploader. Always contain the `url` property |
 | caption        | `string`  | image's caption                                                                           |
 | alt            | `string`  | image's alt tag                                                                           |
+| classes        | `string`  | image's class name(s)                                                                     |
 | withBorder     | `boolean` | add border to image                                                                       |
 | withBackground | `boolean` | need to add background                                                                    |
 | stretched      | `boolean` | stretch image to screen's width                                                           |

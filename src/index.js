@@ -40,6 +40,7 @@
  * @property {object} file — Image file data returned from backend
  * @property {string} file.url — image URL
  * @property {string} alt — alternative text
+ * @property {string} classes - image classes
  */
 
 import "./index.css";
@@ -221,9 +222,11 @@ export default class ImageTool {
   save() {
     const caption = this.ui.nodes.caption;
     const alt = this.ui.nodes.alt;
+    const classes = this.ui.nodes.classes;
 
     this._data.caption = caption.innerHTML;
     this._data.alt = alt.innerHTML;
+    this.__data.classes = classes.innerHTML;
 
     return this.data;
   }
@@ -358,8 +361,10 @@ export default class ImageTool {
 
     this._data.caption = data.caption || "";
     this._data.alt = data.alt || "";
+    this._data.classes = data.classes || "";
     this.ui.fillCaption(this._data.caption);
     this.ui.fillAlt(this._data.alt);
+    this.ui.fillClasses(this._data.classes);
 
     ImageTool.tunes.forEach(({ name: tune }) => {
       const value = typeof data[tune] !== "undefined" ? data[tune] === true || data[tune] === "true" : false;

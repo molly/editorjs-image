@@ -32,6 +32,9 @@ export default class Ui {
       alt: make("div", [this.CSS.input, this.CSS.alt], {
         contentEditable: !this.readOnly,
       }),
+      classes: make("div", [this.CSS.input, this.CSS.alt], {
+        contentEditable: !this.readOnly,
+      }),
     };
 
     /**
@@ -42,6 +45,7 @@ export default class Ui {
      *    </image-container>
      *    <caption />
      *    <alt />
+     *    <classes />
      *    <select-file-button />
      *  </wrapper>
      */
@@ -51,6 +55,7 @@ export default class Ui {
     this.nodes.wrapper.appendChild(this.nodes.imageContainer);
     this.nodes.wrapper.appendChild(this.nodes.caption);
     this.nodes.wrapper.appendChild(this.nodes.alt);
+    this.nodes.wrapper.appendChild(this.nodes.classes);
     this.nodes.wrapper.appendChild(this.nodes.fileButton);
   }
 
@@ -75,6 +80,7 @@ export default class Ui {
       imageEl: "image-tool__image-picture",
       caption: "image-tool__caption",
       alt: "image-tool__alt",
+      classes: "image-tool_classes",
     };
   }
 
@@ -239,6 +245,16 @@ export default class Ui {
   fillAlt(text) {
     if (this.nodes.alt) {
       this.nodes.alt.innerHTML = text;
+    }
+  }
+
+  /**
+   * Shows classes input
+   * @param {string} text - alt text
+   */
+  fillClasses(text) {
+    if (this.nodes.classes) {
+      this.nodes.classes.innerHTML = text;
     }
   }
 
